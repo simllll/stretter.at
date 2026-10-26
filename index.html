@@ -12,91 +12,102 @@
 <meta property="og:image" content="https://stretter.at/simon.jpg">
 <style>
 :root{
-  --bg:#f7f6f3;--surface:#fff;--text:#1d1d1f;--muted:#6b6b70;--line:#e4e2dd;
-  --accent:#d6336c;--accent-soft:#fbe4ec;
-  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --blue:#2b9bbf;--green:#11a673;--mint:#6fddbf;
+  --bg:#fff;--surface:#f6f6f6;--text:#444;--muted:#777;--line:#ececec;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#121214;--surface:#1b1b1f;--text:#ececef;--muted:#9c9ca5;--line:#2c2c32;--accent:#f06595;--accent-soft:#3a1a27}
+  :root{--bg:#141618;--surface:#1d2023;--text:#d6d6d6;--muted:#9a9a9a;--line:#2a2d31}
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 var(--font);-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+body{margin:0;background:var(--bg);color:var(--text);font:19px/1.6 var(--serif);font-feature-settings:"liga","dlig"}
+@media (min-width:754px){body{font-size:21px}}
+a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);transition:color .3s,border-color .3s}
+a:hover{color:var(--blue);border-color:var(--blue)}
+.wrap{max-width:820px;margin:0 auto;padding:0 1em}
+h1,h2,h3{font-weight:600}
 
 /* language toggle: every translatable node exists twice */
 html[data-lang="en"] [lang="de"],html[data-lang="de"] [lang="en"]{display:none}
 
-header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.logo{font-weight:700;letter-spacing:-.02em;color:var(--text)}
-.langs button{font:inherit;font-size:14px;background:none;border:1px solid var(--line);color:var(--muted);padding:4px 10px;border-radius:999px;cursor:pointer}
-.langs button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+/* splash: full-height coloured panel with a white frame, like the old page */
+.splash{min-height:calc(100vh - 20px);margin:10px;background:var(--blue);color:#fff;display:flex;flex-direction:column;position:relative}
+.splash a{color:#fff;border-bottom:1px solid var(--mint)}
+.splash a:hover{color:var(--mint);border-color:var(--mint)}
+.splash .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;font-size:15px}
+.splash .top .logo{border:0;font-weight:600;letter-spacing:.02em}
+.langs{display:flex;gap:4px}
+.langs button{font:inherit;font-size:15px;background:none;border:0;border-bottom:1px solid transparent;color:rgba(255,255,255,.75);padding:2px 4px;cursor:pointer}
+.langs button[aria-pressed="true"]{color:#fff;border-bottom-color:var(--mint)}
+.hero{flex:1;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;max-width:820px;width:100%;margin:0 auto;padding:24px 1em 80px}
+.hero h1{font-size:clamp(40px,7vw,64px);line-height:1.08;margin:0 0 .6em}
+.hero p{font-size:1.05em;line-height:1.5;margin:0 0 1.2em;max-width:26em}
+.hero img{width:230px;height:230px;object-fit:cover;object-position:50% 40%;border-radius:50%;border:5px solid rgba(255,255,255,.85)}
+.next{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);border:0!important;font-size:28px;line-height:1;opacity:.85}
+.next:hover{opacity:1}
 
-.hero{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:48px 0 64px}
-.hero h1{font-size:clamp(36px,6vw,56px);line-height:1.05;letter-spacing:-.03em;margin:0 0 16px}
-.hero h1 span{color:var(--accent)}
-.hero p{font-size:20px;color:var(--muted);margin:0 0 28px;max-width:30em}
-.hero img{width:220px;height:220px;object-fit:cover;object-position:50% 40%;border-radius:50%;border:6px solid var(--surface);box-shadow:0 10px 40px rgba(0,0,0,.15)}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px}
-.btn.primary{background:var(--accent);color:#fff}
-.btn.ghost{border:1px solid var(--line);color:var(--text)}
-.btn:hover{text-decoration:none;opacity:.9}
+section{padding:2.2em 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{color:var(--green);font-size:1.5em;line-height:1.2;margin:0 0 .7em}
+.lead{margin:0;max-width:36em}
+.motto{margin:1.4em 0 0;padding-left:16px;border-left:3px solid var(--mint);font-style:italic;color:var(--muted)}
 
-section{padding:56px 0;border-top:1px solid var(--line)}
-section h2{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 24px}
-.lead{font-size:20px;max-width:36em;margin:0}
-
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
-.card h3{margin:0 0 6px;font-size:17px}
-.card p{margin:0;color:var(--muted);font-size:15px}
-.card .meta{display:block;font-size:13px;color:var(--accent);margin-bottom:8px;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.card{background:var(--surface);padding:18px 20px;border-top:3px solid var(--mint)}
+.card h3{margin:0 0 .3em;font-size:1em;color:var(--blue)}
+.card p{margin:0;color:var(--muted);font-size:.85em}
 
 .timeline{list-style:none;margin:0;padding:0}
-.timeline li{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.timeline li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:.8em 0;border-bottom:1px dashed var(--line)}
 .timeline li:last-child{border-bottom:0}
-.timeline .when{color:var(--muted);font-size:15px}
+.timeline .when{color:var(--muted);font-size:.85em;padding-top:.15em}
 .timeline b{display:block}
-.timeline small{color:var(--muted);font-size:15px}
+.timeline small{display:block;color:var(--muted);font-size:.85em}
 
-.motto{margin:28px 0 0;padding-left:16px;border-left:3px solid var(--accent);font-size:18px;font-style:italic;color:var(--muted)}
-.contact{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-footer{padding:32px 0 48px;color:var(--muted);font-size:14px}
+/* contact: green panel, the old page's second colour */
+#contact{background:var(--green);color:#fff;margin:0 -1em;padding:2.2em 1em 2.6em;border:0}
+#contact h2{color:#fff}
+#contact a{color:#fff;border-bottom-color:var(--mint)}
+#contact a:hover{color:var(--mint)}
+.contact{display:flex;gap:1.4em;flex-wrap:wrap;margin-top:1.2em}
+footer{padding:1.6em 0 2.4em;color:var(--muted);font-size:.8em}
+footer a{color:var(--muted);border-color:var(--line)}
 
 @media (max-width:640px){
-  .hero{grid-template-columns:1fr;padding-top:24px;text-align:left}
+  .hero{grid-template-columns:1fr;gap:20px;padding-top:8px}
   .hero img{width:140px;height:140px;order:-1}
   .timeline li{grid-template-columns:1fr;gap:2px}
 }
 </style>
 </head>
 <body>
-<div class="wrap">
-
-<header class="top">
+<header class="splash">
+<div class="top">
   <a class="logo" href="/">stretter</a>
   <div class="langs" role="group" aria-label="Language">
     <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
     <button type="button" data-set-lang="de" aria-pressed="false">DE</button>
   </div>
-</header>
-
-<main>
+</div>
 <div class="hero">
   <div>
     <h1>Simon Tretter<span>.</span></h1>
     <p lang="en">Technical founder. CTO &amp; Co-Founder of <a href="https://one100.ai">one100</a> – building an AI telephone assistant for medical practices. Previously co-founded hokify.</p>
     <p lang="de">Technischer Gründer. CTO &amp; Co-Founder von <a href="https://one100.ai">one100</a> – wir bauen einen KI-Telefonassistenten für Arztpraxen. Davor Mitgründer von hokify.</p>
-    <div class="cta">
-      <a class="btn primary" href="mailto:s.tretter@gmail.com"><span lang="en">Get in touch</span><span lang="de">Kontakt</span></a>
-      <a class="btn ghost" href="#about"><span lang="en">About me</span><span lang="de">Über mich</span></a>
-    </div>
+    <p class="cta">
+      <span lang="en"><a href="mailto:s.tretter@gmail.com">Get in touch</a>. Or get to <a href="#about">know me</a> first.</span><span lang="de"><a href="mailto:s.tretter@gmail.com">Schreib mir</a>. Oder lerne mich zuerst <a href="#about">kennen</a>.</span>
+    </p>
   </div>
-  <img src="simon.jpg" srcset="simon-320.jpg 320w, simon.jpg 640w" sizes="220px" alt="Simon Tretter">
+  <img src="simon.jpg" srcset="simon-320.jpg 320w, simon.jpg 640w" sizes="230px" alt="Simon Tretter">
 </div>
+<a class="next" href="#about" aria-label="Weiter">&#8964;</a>
+</header>
+<div class="wrap">
+
+
+
+<main>
 
 <section id="about">
   <h2><span lang="en">About</span><span lang="de">Über mich</span></h2>
@@ -158,9 +169,9 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14px}
   <p class="lead" lang="en">Founders, investors, potential hires or practices curious about one100 – I'd love to hear from you.</p>
   <p class="lead" lang="de">Gründer:innen, Investor:innen, künftige Kolleg:innen oder Praxen mit Interesse an one100 – ich freue mich auf deine Nachricht.</p>
   <div class="contact">
-    <a class="btn primary" href="mailto:s.tretter@gmail.com">s.tretter@gmail.com</a>
-    <a class="btn ghost" href="https://www.linkedin.com/profile/view?id=219498687">LinkedIn</a>
-    <a class="btn ghost" href="https://github.com/simllll">GitHub</a>
+    <a href="mailto:s.tretter@gmail.com">s.tretter@gmail.com</a>
+    <a href="https://www.linkedin.com/in/stretter">LinkedIn</a>
+    <a href="https://github.com/simllll">GitHub</a>
   </div>
 </section>
 </main>
