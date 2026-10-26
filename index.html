@@ -68,7 +68,7 @@ html[data-lang="en"] [lang="de"],html[data-lang="de"] [lang="en"]{display:none}
 
 .portrait{position:relative;justify-self:center;width:min(100%,380px)}
 .portrait:before{content:"";position:absolute;inset:-14px;border-radius:36px;background:var(--grad);opacity:.9;transform:rotate(-4deg)}
-.portrait img{position:relative;display:block;width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 30%;border-radius:30px;box-shadow:var(--shadow);background:#fff}
+.portrait img{position:relative;display:block;width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 40%;border-radius:30px;box-shadow:var(--shadow);background:#fff}
 .chip{position:absolute;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px;line-height:1.25;white-space:nowrap}
 .chip strong{display:block;font-size:15px}
 .chip span{color:var(--muted)}
@@ -171,7 +171,7 @@ footer{padding:0 0 48px;color:var(--muted);font-size:14px;display:flex;justify-c
     </div>
   </div>
   <div class="portrait">
-    <img src="simon.jpg" srcset="simon-320.jpg 320w, simon.jpg 640w" sizes="(max-width:900px) 320px, 380px" alt="Simon Tretter">
+    <img src="simon.jpg" srcset="simon-320.jpg 380w, simon.jpg 760w" sizes="(max-width:900px) 320px, 380px" alt="Simon Tretter">
     <div class="chip c1"><span class="dot">AI</span><div><strong>one100.ai</strong><span>CTO &amp; Co-Founder</span></div></div>
     <div class="chip c2"><span class="dot">↗</span><div><strong>hokify</strong><span lang="en">exit 2024</span><span lang="de">Exit 2024</span></div></div>
     <div class="chip c3"><span class="dot">∞</span><div><strong>230M+</strong><span lang="en">clicks / month at Szene1</span><span lang="de">Klicks / Monat bei Szene1</span></div></div>
@@ -259,6 +259,7 @@ footer{padding:0 0 48px;color:var(--muted);font-size:14px;display:flex;justify-c
 
 <footer>
   <span>Ing. Simon Tretter, MSc · Vienna, Austria</span>
+  <span lang="en">Photo © Wolfgang Haidinger-Klein</span><span lang="de">Foto © Wolfgang Haidinger-Klein</span>
   <span>© <span id="y">2026</span></span>
 </footer>
 </main>
