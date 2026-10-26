@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simon Tretter</title>
+<meta name="description" content="Simon Tretter – software, infrastructure and web platforms. Vienna, Austria.">
+<link rel="icon" href="/favicon.ico">
+<link rel="canonical" href="https://stretter.at/">
+<meta property="og:title" content="Simon Tretter">
+<meta property="og:description" content="Software, infrastructure and web platforms. Vienna, Austria.">
+<meta property="og:image" content="https://stretter.at/simon.jpg">
+<style>
+:root{
+  --bg:#f7f6f3;--surface:#fff;--text:#1d1d1f;--muted:#6b6b70;--line:#e4e2dd;
+  --accent:#d6336c;--accent-soft:#fbe4ec;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#121214;--surface:#1b1b1f;--text:#ececef;--muted:#9c9ca5;--line:#2c2c32;--accent:#f06595;--accent-soft:#3a1a27}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* language toggle: every translatable node exists twice */
+html[data-lang="en"] [lang="de"],html[data-lang="de"] [lang="en"]{display:none}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-weight:700;letter-spacing:-.02em;color:var(--text)}
+.langs button{font:inherit;font-size:14px;background:none;border:1px solid var(--line);color:var(--muted);padding:4px 10px;border-radius:999px;cursor:pointer}
+.langs button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+
+.hero{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:48px 0 64px}
+.hero h1{font-size:clamp(36px,6vw,56px);line-height:1.05;letter-spacing:-.03em;margin:0 0 16px}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:20px;color:var(--muted);margin:0 0 28px;max-width:30em}
+.hero img{width:220px;height:220px;object-fit:cover;object-position:50% 20%;border-radius:50%;border:6px solid var(--surface);box-shadow:0 10px 40px rgba(0,0,0,.15)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{border:1px solid var(--line);color:var(--text)}
+.btn:hover{text-decoration:none;opacity:.9}
+
+section{padding:56px 0;border-top:1px solid var(--line)}
+section h2{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 24px}
+.lead{font-size:20px;max-width:36em;margin:0}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card .meta{display:block;font-size:13px;color:var(--accent);margin-bottom:8px;font-weight:600}
+
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.timeline li:last-child{border-bottom:0}
+.timeline .when{color:var(--muted);font-size:15px}
+.timeline b{display:block}
+.timeline small{color:var(--muted);font-size:15px}
+
+.contact{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14px}
+
+@media (max-width:640px){
+  .hero{grid-template-columns:1fr;padding-top:24px;text-align:left}
+  .hero img{width:140px;height:140px;order:-1}
+  .timeline li{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="logo" href="/">stretter</a>
+  <div class="langs" role="group" aria-label="Language">
+    <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-set-lang="de" aria-pressed="false">DE</button>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div>
+    <h1>Simon Tretter<span>.</span></h1>
+    <p lang="en">I build and run web platforms – from the database and servers up to the product people actually use.</p>
+    <p lang="de">Ich baue und betreibe Webplattformen – von Datenbank und Servern bis zum Produkt, das Menschen tatsächlich nutzen.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:s.tretter@gmail.com"><span lang="en">Get in touch</span><span lang="de">Kontakt</span></a>
+      <a class="btn ghost" href="#about"><span lang="en">About me</span><span lang="de">Über mich</span></a>
+    </div>
+  </div>
+  <img src="simon.jpg" srcset="simon-320.jpg 320w, simon.jpg 640w" sizes="220px" alt="Simon Tretter">
+</div>
+
+<section id="about">
+  <h2><span lang="en">About</span><span lang="de">Über mich</span></h2>
+  <p class="lead" lang="en">Engineer with a business background. I studied business economics at WU Vienna and earned an MSc in Human-Centered Multimedia from the University of Amsterdam (cum laude), with my master thesis written at FXPAL in Palo Alto. Since its founding I have been building and running Szene1.at – the Austrian party and event community.</p>
+  <p class="lead" lang="de">Techniker mit wirtschaftlichem Hintergrund. Studium der Betriebswirtschaft an der WU Wien und MSc in Human-Centered Multimedia an der Universität Amsterdam (cum laude), Masterarbeit bei FXPAL in Palo Alto. Seit der Gründung baue und betreibe ich Szene1.at – die österreichische Party- und Event-Community.</p>
+</section>
+
+<section>
+  <h2><span lang="en">What I do</span><span lang="de">Was ich mache</span></h2>
+  <div class="cards">
+    <div class="card">
+      <h3><span lang="en">Platforms &amp; web</span><span lang="de">Plattformen &amp; Web</span></h3>
+      <p lang="en">Architecture, development and long-term care of high-traffic web applications.</p>
+      <p lang="de">Architektur, Entwicklung und langfristige Betreuung von Webanwendungen mit viel Traffic.</p>
+    </div>
+    <div class="card">
+      <h3><span lang="en">Infrastructure</span><span lang="de">Infrastruktur</span></h3>
+      <p lang="en">Linux, cloud and clustering – storage, databases and performance, migrated without drama.</p>
+      <p lang="de">Linux, Cloud und Clustering – Storage, Datenbanken und Performance, ohne Drama migriert.</p>
+    </div>
+    <div class="card">
+      <h3><span lang="en">Databases</span><span lang="de">Datenbanken</span></h3>
+      <p lang="en">SQL and NoSQL design, tuning and consulting.</p>
+      <p lang="de">SQL- und NoSQL-Design, Tuning und Beratung.</p>
+    </div>
+    <div class="card">
+      <h3><span lang="en">Teams &amp; consulting</span><span lang="de">Teams &amp; Beratung</span></h3>
+      <p lang="en">Leading technical teams and helping companies make pragmatic technology decisions.</p>
+      <p lang="de">Technische Teams führen und Unternehmen bei pragmatischen Technologie-Entscheidungen helfen.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span lang="en">Selected work</span><span lang="de">Ausgewählte Projekte</span></h2>
+  <ul class="timeline">
+    <li><span class="when"><span lang="en">since founding</span><span lang="de">seit Gründung</span></span>
+      <div><b><a href="https://www.szene1.at">Szene1.at</a></b>
+      <small lang="en">Development, operations and the move to modern cloud infrastructure.</small>
+      <small lang="de">Entwicklung, Betrieb und der Umzug auf moderne Cloud-Infrastruktur.</small></div></li>
+    <li><span class="when">2013</span>
+      <div><b>SearchPanel · FXPAL, Palo Alto</b>
+      <small lang="en">Browser extension for exploratory web search, from my master thesis research.</small>
+      <small lang="de">Browser-Erweiterung für explorative Websuche, aus der Forschung zur Masterarbeit.</small></div></li>
+    <li><span class="when">2013</span>
+      <div><b>NOW</b>
+      <small lang="en">Android app, Mobile Systems – University of Amsterdam.</small>
+      <small lang="de">Android-App, Mobile Systems – Universität Amsterdam.</small></div></li>
+    <li><span class="when">2012</span>
+      <div><b>Wordgame Deceptron</b>
+      <small lang="en">Serious game research project – University of Amsterdam.</small>
+      <small lang="de">Serious-Game-Forschungsprojekt – Universität Amsterdam.</small></div></li>
+    <li><span class="when">&nbsp;</span>
+      <div><b>Museumtickets.nl</b>
+      <small lang="en">Development and consulting for an automated ticket sales system.</small>
+      <small lang="de">Entwicklung und Beratung für ein automatisiertes Ticketverkaufssystem.</small></div></li>
+    <li><span class="when">&nbsp;</span>
+      <div><b>Onlinezone.cc</b>
+      <small lang="en">Website development and technical support.</small>
+      <small lang="de">Webentwicklung und technischer Support.</small></div></li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2><span lang="en">Contact</span><span lang="de">Kontakt</span></h2>
+  <p class="lead" lang="en">If you think I can help, I'd love to hear from you.</p>
+  <p class="lead" lang="de">Wenn du glaubst, dass ich helfen kann – ich freue mich auf deine Nachricht.</p>
+  <div class="contact">
+    <a class="btn primary" href="mailto:s.tretter@gmail.com">s.tretter@gmail.com</a>
+    <a class="btn ghost" href="https://www.linkedin.com/profile/view?id=219498687">LinkedIn</a>
+    <a class="btn ghost" href="https://github.com/simllll">GitHub</a>
+  </div>
+</section>
+</main>
+
+<footer>Ing. Simon Tretter, MSc · Vienna, Austria</footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function set(lang) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang);
+    var b = document.querySelectorAll('[data-set-lang]');
+    for (var i = 0; i < b.length; i++) b[i].setAttribute('aria-pressed', b[i].getAttribute('data-set-lang') === lang);
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  set(saved || ((navigator.language || '').slice(0, 2) === 'de' ? 'de' : 'en'));
+  document.querySelector('.langs').addEventListener('click', function (e) {
+    var l = e.target.getAttribute('data-set-lang');
+    if (l) set(l);
+  });
+})();
+</script>
+</body>
+</html>
