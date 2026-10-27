@@ -144,10 +144,14 @@ footer{padding:0 0 48px;color:var(--muted);font-size:14px;display:flex;justify-c
   .chip.c2{right:-14px;top:-16px}
   .chip.c3{right:-10px;bottom:-22px}
 }
-/* very narrow phones: no room on the photo, list the chips below it */
+/* very narrow phones: same layout, just smaller chips */
 @media (max-width:380px){
-  .portrait .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:30px}
-  .portrait .chip{position:static}
+  .portrait .chip{font-size:11px;padding:6px 8px;gap:6px;border-radius:12px}
+  .portrait .chip strong{font-size:12px}
+  .portrait .chip .dot{width:22px;height:22px;font-size:11px;border-radius:7px}
+  .chip.c1{left:-10px;top:-14px}
+  .chip.c2{right:-10px;top:-14px}
+  .chip.c3{right:-8px;bottom:-18px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
