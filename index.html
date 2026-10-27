@@ -67,15 +67,16 @@ html[data-lang="en"] [lang="de"],html[data-lang="de"] [lang="en"]{display:none}
 .btn svg{width:16px;height:16px}
 
 .portrait{position:relative;justify-self:center;width:min(100%,380px)}
-.portrait:before{content:"";position:absolute;inset:-14px;border-radius:36px;background:var(--grad);opacity:.9;transform:rotate(-4deg)}
+.portrait .frame{position:relative}
+.portrait .frame:before{content:"";position:absolute;inset:-14px;border-radius:36px;background:var(--grad);opacity:.9;transform:rotate(-4deg)}
 .portrait img{position:relative;display:block;width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 40%;border-radius:30px;box-shadow:var(--shadow);background:#fff}
 .chip{position:absolute;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px;line-height:1.25;white-space:nowrap}
 .chip strong{display:block;font-size:15px}
 .chip span{color:var(--muted)}
 .chip .dot{width:30px;height:30px;border-radius:10px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex:none}
-.chip.c1{left:-46px;bottom:56px}
-.chip.c2{right:-34px;top:28px}
-.chip.c3{right:-18px;bottom:-22px}
+.chip.c1{left:-56px;bottom:-26px}
+.chip.c2{right:-44px;top:-18px}
+.chip.c3{right:-30px;bottom:-26px}
 
 /* sections */
 section{padding:72px 0}
@@ -131,10 +132,22 @@ footer{padding:0 0 48px;color:var(--muted);font-size:14px;display:flex;justify-c
   .langs{margin-left:auto}
   .bento{grid-template-columns:1fr}
   .card.wide{grid-column:auto}
-  .chip{font-size:12px;padding:8px 10px}
-  .chip.c1{left:-12px}.chip.c2{right:-12px}.chip.c3{right:-6px}
   .contact{padding:36px 24px;border-radius:22px}
   section{padding:56px 0}
+}
+/* phones: chips stay on the photo but hug the edges, so the face stays free */
+@media (max-width:900px){
+  .portrait .chip{font-size:12px;padding:7px 10px;gap:8px}
+  .portrait .chip strong{font-size:13px}
+  .portrait .chip .dot{width:26px;height:26px;font-size:12px}
+  .chip.c1{left:-14px;top:-16px;bottom:auto}
+  .chip.c2{right:-14px;top:-16px}
+  .chip.c3{right:-10px;bottom:-22px}
+}
+/* very narrow phones: no room on the photo, list the chips below it */
+@media (max-width:380px){
+  .portrait .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:30px}
+  .portrait .chip{position:static}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -171,10 +184,14 @@ footer{padding:0 0 48px;color:var(--muted);font-size:14px;display:flex;justify-c
     </div>
   </div>
   <div class="portrait">
-    <img src="simon.jpg" srcset="simon-320.jpg 380w, simon.jpg 760w" sizes="(max-width:900px) 320px, 380px" alt="Simon Tretter">
+    <div class="frame">
+      <img src="simon.jpg" srcset="simon-320.jpg 380w, simon.jpg 760w" sizes="(max-width:900px) 320px, 380px" alt="Simon Tretter">
+    </div>
+    <div class="chips">
     <div class="chip c1"><span class="dot">AI</span><div><strong>one100.ai</strong><span>CTO &amp; Co-Founder</span></div></div>
     <div class="chip c2"><span class="dot">↗</span><div><strong>hokify</strong><span lang="en">exit 2024</span><span lang="de">Exit 2024</span></div></div>
     <div class="chip c3"><span class="dot">∞</span><div><strong>230M+</strong><span lang="en">clicks / month at Szene1</span><span lang="de">Klicks / Monat bei Szene1</span></div></div>
+    </div>
   </div>
 </div>
 
